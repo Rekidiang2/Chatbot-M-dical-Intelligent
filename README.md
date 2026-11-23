@@ -48,13 +48,18 @@ Chatbot médical intelligent et **multimodal** reposant sur une architecture **R
 - **Installer uv (si nécessaire)**
   - Vérifiez d'abord s'il est déjà installé : bash `uv --version`
   - Sinon, installez-le selon votre système :
+    
  
-  | Système d'exploitation | Commande |
+### 2. Installer uv (si nécessaire)
+
+Vérifiez d'abord s'il est déjà installé : `uv --version`
+
+| Système d'exploitation | Commande |
 |------------------------|----------|
-| **Windows** | `powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 \| iex"` ou `winget install --id=astral-sh.uv -e` |
-| **Linux / macOS** | `curl -LsSf https://astral.sh/uv/install.sh \| sh` |
-| **macOS (Homebrew)** | `brew install uv` |
-| **Tous (via pip)** | `pip install uv` |
+| **Windows** | <code>powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 &#124; iex"</code><br>ou <code>winget install --id=astral-sh.uv -e</code> |
+| **Linux / macOS** | <code>curl -LsSf https://astral.sh/uv/install.sh &#124; sh</code> |
+| **macOS (Homebrew)** | <code>brew install uv</code> |
+| **Tous (via pip)** | <code>pip install uv</code> |
 
 
 
