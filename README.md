@@ -56,6 +56,8 @@ Chatbot médical intelligent et **multimodal** reposant sur une architecture **R
 | **macOS (Homebrew)** | `brew install uv` |
 | **Tous (via pip)** | `pip install uv` |
 
+
+
 > Fermez puis rouvrez le terminal, et revérifiez avec uv --version. Pour mettre à jour uv plus tard : uv self update (ou pip install -U uv si installé avec pip).
 
 - **Configurer les variables d'environnement**
@@ -65,7 +67,7 @@ Chatbot médical intelligent et **multimodal** reposant sur une architecture **R
   - bash `uv sync` (Cette commande crée automatiquement l'environnement virtuel .venv s'il n'existe pas, puis installe les dépendances du projet.)
 - **Indexer le document de référence**
 
-Placez votre PDF dans data/medical_book.pdf, puis lancez l'indexation (une seule fois, ou après chaque changement de document) : 
+  - Placez votre PDF dans data/medical_book.pdf, puis lancez l'indexation (une seule fois, ou après chaque changement de document) : 
 bash uv run python ingest.py
 
 - **Lancer l'application**
