@@ -42,40 +42,35 @@ Chatbot médical intelligent et **multimodal** reposant sur une architecture **R
 ```
 
 ## 4. 🚀 Exécuter le projet
-  1. Cloner le dépôt
-bash `git clone https://github.com/<votre-compte>/Chatbot-Médical-Intelligent.git`
-`cd Chatbot-Médical-Intelligent`
-  2. Installer uv (si nécessaire)
+- **Cloner le dépôt** :
+  - bash `git clone https://github.com/<votre-compte>/Chatbot-Médical-Intelligent.git`
+  - `cd Chatbot-Médical-Intelligent`
+- **Installer uv (si nécessaire)**
+  - Vérifiez d'abord s'il est déjà installé : bash `uv --version`
+  - Sinon, installez-le selon votre système :
+ 
+  | Système d'exploitation | Commande |
+|------------------------|----------|
+| **Windows** | `powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 \| iex"` ou `winget install --id=astral-sh.uv -e` |
+| **Linux / macOS** | `curl -LsSf https://astral.sh/uv/install.sh \| sh` |
+| **macOS (Homebrew)** | `brew install uv` |
+| **Tous (via pip)** | `pip install uv` |
 
-Vérifiez d'abord s'il est déjà installé : bash `uv --version`
+> Fermez puis rouvrez le terminal, et revérifiez avec uv --version. Pour mettre à jour uv plus tard : uv self update (ou pip install -U uv si installé avec pip).
 
-Sinon, installez-le selon votre système :
-
-Système	Commande
-Windows	powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex" ou winget install --id=astral-sh.uv -e
-Linux / macOS	curl -LsSf https://astral.sh/uv/install.sh | sh
-macOS (Homebrew)	brew install uv
-Tous (via pip)	pip install uv
-
-Fermez puis rouvrez le terminal, et revérifiez avec uv --version.
-
-Pour mettre à jour uv plus tard : uv self update (ou pip install -U uv si installé avec pip).
-
-  3. Configurer les variables d'environnement
-bash
-cp .env.example .env          # Windows (PowerShell) : copy .env.example .env
-
-Ouvrez .env et renseignez vos clés (Pinecone, Tavily, fournisseur LLM, etc.).
-
-  4. Installer les dépendances bash uv sync (Cette commande crée automatiquement l'environnement virtuel .venv s'il n'existe pas, puis installe les dépendances du projet.)
-
-  5. Indexer le document de référence
+- **Configurer les variables d'environnement**
+  - bash `cp .env.example .env`          # Windows (PowerShell) : `copy .env.example .env`
+  - Ouvrez .env et renseignez vos clés (Pinecone, Tavily, fournisseur LLM, etc.).
+- **Installer les dépendances**
+  - bash `uv sync` (Cette commande crée automatiquement l'environnement virtuel .venv s'il n'existe pas, puis installe les dépendances du projet.)
+- **Indexer le document de référence**
 
 Placez votre PDF dans data/medical_book.pdf, puis lancez l'indexation (une seule fois, ou après chaque changement de document) : 
 bash uv run python ingest.py
-  6. Lancer l'application bash uv run uvicorn app.main:app --reload
 
-L'interface est disponible sur http://127.0.0.1:8000.
+- **Lancer l'application**
+  - bash `uv run uvicorn app.main:app --reload`
+  - L'interface est disponible sur http://127.0.0.1:8000.
 
 ## ⚠️ Avertissement
 
