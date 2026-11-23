@@ -82,7 +82,7 @@ bash uv run python ingest.py
 - **401** : si API_TOKEN est configuré, saisissez-le dans la section « Accès API » de l'interface. N'exposez pas ce jeton dans un déploiement public côté navigateur.
 - **502** : consultez le terminal du backend, puis vérifiez les clés OpenAI et Pinecone, la disponibilité du service Pinecone, la dimension des embeddings et le certificat SSL.
 - **Caméra / microphone** : vérifiez les autorisations du navigateur. L'accès nécessite localhost ou HTTPS.
-- **Aucun résultat dans la base de connaissances (KB)** : exécutez python ingest.py et attendez la fin de l'opération avec succès. Assurez-vous d'utiliser le même index et les mêmes clés API.
+- **Aucun résultat dans la base de connaissances (KB)** : exécutez `uv run python ingest.py` et attendez la fin de l'opération avec succès. Assurez-vous d'utiliser le même index et les mêmes clés API.
 - **Tavily** : optionnel, mais nécessaire pour la recherche externe de secours. Sans sa clé, la recherche externe est désactivée.
 
 ## 6. ⚠️ Avertissement
