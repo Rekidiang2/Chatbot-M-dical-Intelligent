@@ -48,9 +48,7 @@ Chatbot médical intelligent et **multimodal** reposant sur une architecture **R
 - **Installer uv (si nécessaire)**
   - Vérifiez d'abord s'il est déjà installé : bash `uv --version`
   - Sinon, installez-le selon votre système :
-    
- 
-### 2. Installer uv (si nécessaire)
+
 
 Vérifiez d'abord s'il est déjà installé : `uv --version`
 
@@ -79,9 +77,34 @@ bash uv run python ingest.py
   - bash `uv run uvicorn app.main:app --reload`
   - L'interface est disponible sur http://127.0.0.1:8000.
 
-## ⚠️ Avertissement
+## 5. Dépannage
+- **Connexion / vérification** : lancez uvicorn et ouvrez d'abord /api/health. Consultez la console du navigateur et le terminal du backend.
+- **401** : si API_TOKEN est configuré, saisissez-le dans la section « Accès API » de l'interface. N'exposez pas ce jeton dans un déploiement public côté navigateur.
+- **502** : consultez le terminal du backend, puis vérifiez les clés OpenAI et Pinecone, la disponibilité du service Pinecone, la dimension des embeddings et le certificat SSL.
+- **Caméra / microphone** : vérifiez les autorisations du navigateur. L'accès nécessite localhost ou HTTPS.
+- **Aucun résultat dans la base de connaissances (KB)** : exécutez python ingest.py et attendez la fin de l'opération avec succès. Assurez-vous d'utiliser le même index et les mêmes clés API.
+- **Tavily** : optionnel, mais nécessaire pour la recherche externe de secours. Sans sa clé, la recherche externe est désactivée.
+
+## 6. ⚠️ Avertissement
 
 Ce projet est fourni à des fins **informatives et éducatives uniquement**. L'analyse d'images et de vidéos ne constitue **pas un diagnostic médical** et ne remplace en aucun cas l'avis d'un professionnel de santé qualifié. Pour toute urgence médicale, contactez immédiatement les services d'urgence.
+
+## 7. Sécurité et limites pour la production
+
+Ce projet est une base fonctionnelle à visée pédagogique, et non un dispositif médical prêt pour la production. Avant tout déploiement auprès de patients réels :
+
+remplacer le jeton d'API partagé par une identité et une authentification côté serveur ;
+ajouter des conversations chiffrées stockées en base de données, avec des contrôles de conservation et de suppression ;
+appliquer une limitation du débit des requêtes et une vérification du contenu des fichiers téléversés ;
+mettre en place l'observabilité, des tests, un triage des urgences et une évaluation validés cliniquement ;
+vérifier les droits de licence pour héberger et indexer le PDF de la Gale ;
+obtenir une revue de confidentialité, de sécurité et juridique ;
+s'assurer de disposer de références cliniques faisant autorité et à jour ;
+sécuriser le déploiement derrière HTTPS.
+
+Ne transmettez pas de données identifiables de patients à des API tierces sans consentement approprié et accords adéquats.
+
+> ⚠️ L'ouvrage de référence, de nature historique, peut contenir des conseils cliniques obsolètes : les instructions données au modèle ne garantissent pas la sécurité. Les images peuvent être décrites, mais elles ne permettent ni de confirmer ni d'exclure une maladie. Ce logiciel ne pose aucun diagnostic.
 
 ## 🛠️ Stack technique
 
